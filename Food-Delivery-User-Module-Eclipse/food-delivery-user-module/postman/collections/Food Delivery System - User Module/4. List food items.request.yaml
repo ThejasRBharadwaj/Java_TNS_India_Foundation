@@ -1,0 +1,10 @@
+$kind: http-request
+url: "{{baseUrl}}/api/food-items"
+method: GET
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test('Food list returned', function () { pm.response.to.have.status(200); });
+      if (pm.response.code === 200 && pm.response.json().length > 0) { pm.collectionVariables.set('foodItemId', pm.response.json()[0].id); }
+    language: text/javascript
+order: 4000

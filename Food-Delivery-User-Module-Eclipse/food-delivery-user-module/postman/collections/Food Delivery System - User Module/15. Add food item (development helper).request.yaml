@@ -1,0 +1,13 @@
+$kind: http-request
+url: "{{baseUrl}}/api/dev/food-items"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "name": "Idli Vada",
+      "price": 65
+    }
+order: 15000
